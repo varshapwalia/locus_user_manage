@@ -22,9 +22,9 @@ class DevelopmentConfig(Config):
 class ProductionConfig(Config):
   DEBUG = True
   DEVELOPMENT = True
-  BASE_URL = ' https://locus-test.herokuapp.com/'
+  BASE_URL = ''
   # MongoDB
-  MONGODB_DB = 'Locus'
-  MONGODB_USERNAME = 'test'
-  MONGODB_PASSWORD = 'Password.1'
-  MONGODB_HOST = 'mongodb://cluster0-shard-00-00-iyb6j.mongodb.net:27017,cluster0-shard-00-01-iyb6j.mongodb.net:27017,cluster0-shard-00-02-iyb6j.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true'
+  MONGODB_DB = ''
+  MONGODB_USERNAME = ''
+  MONGODB_PASSWORD = ''
+  MONGODB_HOST = ''
