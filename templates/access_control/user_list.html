@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="blog-area">
+    <div class="container">
+      <div class="row">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">No.</th>
+              <th scope="col">User Name</th>
+              <th scope="col">Action Type</th>
+              <th scope="col">Role</th>
+              <th scope="col">Edit Permission</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for user in users %} 
+            <tr>
+              <td>{{ loop.index }}</td>
+              <td>{{ user.full_name }}</td>
+              <td>{{ user.action_type }}</td>
+              <td>{{ user.userrole.name }}</td>
+              {% if current_user.role_name == "admin" %}
+              <td><a class="primary-btn" type="button" href="/change_role/{{user.id}}">Read/WRITE</a></td>
+              <td><a class="primary-btn" type="button" href="/delete_user/{{user.id}}">Delete</a></td>
+              {% elif current_user.role_name == "assistant" %}
+              <td><a class="primary-btn" type="button" href="/change_role/{{user.id}}">Read/WRITE</a></td>
+              <td>No Permission</td>
+              {% else %}
+              <td>No Permission</td>
+              <td>No Permission</td>
+              {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+{% endblock content %}
+ 
